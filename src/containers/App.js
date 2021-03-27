@@ -3,6 +3,7 @@ import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import "./App.css";
 import Scroll from "../components/Scroll";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 // const App = () => {
 // 	return(
@@ -11,7 +12,7 @@ import Scroll from "../components/Scroll";
 // 			<SearchBox />
 // 			<CardList robots={robots} />
 // 		</div>
-
+ 
 
 // 	);
 // }
@@ -57,10 +58,12 @@ class App extends Component {
 		} else {
 			return(
 				<div className="tc">
-					<h1 className="f1">Robofriends</h1>
+					<h1 className="f1">Robofriends o caralho</h1>
 					<SearchBox searchChange={this.onSearchChange}/>
 					<Scroll>
-						<CardList robots={filteredRobots} />
+						<ErrorBoundry>
+							<CardList robots={filteredRobots} />
+						</ErrorBoundry>
 					</Scroll>
 				</div>
 			);	
